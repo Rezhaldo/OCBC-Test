@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4D3BDEBD2838DADD005C3F9C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3BDEBC2838DADD005C3F9C /* DashboardViewController.swift */; };
+		4D3BDEBF2839EC4A005C3F9C /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3BDEBE2839EC4A005C3F9C /* LoginModel.swift */; };
+		4D3BDEC12839F807005C3F9C /* BalanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3BDEC02839F807005C3F9C /* BalanceModel.swift */; };
 		4D7BCE7728367968008A383B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCE7628367968008A383B /* AppDelegate.swift */; };
 		4D7BCE7928367968008A383B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCE7828367968008A383B /* SceneDelegate.swift */; };
 		4D7BCE7B28367968008A383B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCE7A28367968008A383B /* LoginViewController.swift */; };
@@ -45,6 +47,8 @@
 		3C6FC67D7A8D9EDF53B8742F /* Pods-OCBC Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCBC Test.debug.xcconfig"; path = "Target Support Files/Pods-OCBC Test/Pods-OCBC Test.debug.xcconfig"; sourceTree = "<group>"; };
 		4459C0319F6A042A5D48EF73 /* Pods-OCBC TestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCBC TestTests.release.xcconfig"; path = "Target Support Files/Pods-OCBC TestTests/Pods-OCBC TestTests.release.xcconfig"; sourceTree = "<group>"; };
 		4D3BDEBC2838DADD005C3F9C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		4D3BDEBE2839EC4A005C3F9C /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		4D3BDEC02839F807005C3F9C /* BalanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceModel.swift; sourceTree = "<group>"; };
 		4D7BCE7328367968008A383B /* OCBC Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OCBC Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7BCE7628367968008A383B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D7BCE7828367968008A383B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,7 +111,6 @@
 				C5715C3CF996383DA3910C0B /* Pods-OCBC TestTests.debug.xcconfig */,
 				4459C0319F6A042A5D48EF73 /* Pods-OCBC TestTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -178,6 +181,8 @@
 		4D7BCEA628372522008A383B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4D3BDEBE2839EC4A005C3F9C /* LoginModel.swift */,
+				4D3BDEC02839F807005C3F9C /* BalanceModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -434,8 +439,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D7BCE7B28367968008A383B /* LoginViewController.swift in Sources */,
+				4D3BDEBF2839EC4A005C3F9C /* LoginModel.swift in Sources */,
 				4D7BCE7728367968008A383B /* AppDelegate.swift in Sources */,
 				4D3BDEBD2838DADD005C3F9C /* DashboardViewController.swift in Sources */,
+				4D3BDEC12839F807005C3F9C /* BalanceModel.swift in Sources */,
 				4D7BCEAC2838D4C3008A383B /* TransactionTableViewCell.swift in Sources */,
 				4D7BCE7928367968008A383B /* SceneDelegate.swift in Sources */,
 			);
