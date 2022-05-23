@@ -21,15 +21,15 @@
                         <rect key="frame" x="15" y="15" width="41.5" height="47"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSP-Yo-nuu">
-                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="24.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jjn-zh-Uy8">
-                                <rect key="frame" x="0.0" y="26.5" width="41.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="0.0" y="30" width="35.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -51,9 +51,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="labelIdNumberName" destination="Jjn-zh-Uy8" id="cIP-6F-LQo"/>
-                <outlet property="labelNameContact" destination="vSP-Yo-nuu" id="8WN-V1-cH7"/>
-                <outlet property="labelNumberOfTransaction" destination="KtC-dJ-QrF" id="q2d-in-QEj"/>
+                <outlet property="labelAccountNoReceipient" destination="Jjn-zh-Uy8" id="JyM-af-TQp"/>
+                <outlet property="labelAmountTransfer" destination="KtC-dJ-QrF" id="fc2-6c-vbl"/>
+                <outlet property="labelReceipientName" destination="vSP-Yo-nuu" id="LTF-z8-lO3"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="142.96875"/>
         </tableViewCell>

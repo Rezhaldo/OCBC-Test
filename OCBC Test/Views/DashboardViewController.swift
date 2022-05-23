@@ -16,11 +16,15 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var labelAccountHolder: UILabel!
     @IBOutlet weak var buttonLogout: UIButton!
     @IBOutlet weak var viewTopCard: UIView!
+    @IBOutlet weak var buttonMakeTransfer: UIButton!
+    
+    var transactionData: TransactionResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
         
         self.view.backgroundColor = UIColor(named: "dasar")
         viewTopCard.backgroundColor = UIColor.white
@@ -37,6 +41,9 @@ class DashboardViewController: UIViewController {
         let accountHolder = UserDefaults.standard.string(forKey: "account_holder")
         
         let balanceURL = URL(string: "https://green-thumb-64168.uc.r.appspot.com/balance")
+        
+        let transactionURL = URL(string: "https://green-thumb-64168.uc.r.appspot.com/transactions")
+        
         let header = HTTPHeaders(["Content-Type":"application/json", "Accept":"application/json", "Authorization": userToken])
         
                            
@@ -55,7 +62,24 @@ class DashboardViewController: UIViewController {
                 print("Error Request: \(error.localizedDescription)")
             }
         })
-    }
+        
+        AF.request(transactionURL!, method: .get, headers: header).response(completionHandler: { response in
+            
+            print("response transaction: \(response)")
+        
+        guard let data = response.data else { return }
+            print("response transaction data: \(data)")
+        do {
+            let decoder = JSONDecoder()
+            let transactionResponse = try decoder.decode(TransactionResponse.self, from: data)
+            print("response transaction parse: \(transactionResponse)")
+            self.transactionData = transactionResponse
+            self.tableViewTransactionHistory.reloadData()
+        } catch let error {
+            print("Error Request: \(error.localizedDescription)")
+        }
+    })
+}
     
     @IBAction func buttonLogoutInTapped(_ sender: UIButton) {
         self.dismiss(animated: true)
@@ -79,15 +103,39 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return transactionData?.data.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! TransactionTableViewCell
+        
+        if let tran = transactionData?.data[indexPath.row] {
+            cell.setData(data: tran)
+        }
+        
         return cell
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "22 may"
+        let dateFormatterGet = DateFormatter()
+        
+        var date: Date = Date()
+        
+        dateFormatterGet.dateFormat = "yyyy-MM-dd-'T'HH:mm:ss.sssZ"
+
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+        
+        if let tran = transactionData?.data[section] {
+            if let dateStr = tran.transactionDate {
+                if let date1 = dateFormatterGet.date(from: dateStr) {
+                    date = date1
+                }
+            }
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd,yyyy"
+        return formatter.string(from: date)
     }
     
 }
