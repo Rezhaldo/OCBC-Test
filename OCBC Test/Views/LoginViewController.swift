@@ -15,14 +15,59 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var labelAlertUsername: UILabel!
     @IBOutlet weak var labelAlertPassword: UILabel!
+    @IBOutlet weak var viewLoginBackground: UIView!
+    @IBOutlet weak var buttonLogin: UIButton!
+    @IBOutlet weak var buttonRegister: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.view.backgroundColor = UIColor.white
+        
+        //LoginBackground
+        loginViewBackground()
+
+        //TextFieldViewBackground
+        textFieldViewBackground()
+        
         textFieldUsernameEntry.delegate = self
         textFieldPassword.delegate = self
+        
+        //ButtonLogin/RegisterView
+        buttonLoginView()
+
+    }
+    
+    func loginViewBackground() {
+        viewLoginBackground.backgroundColor = UIColor.white
+        viewLoginBackground.layer.borderColor = UIColor.black.cgColor
+        viewLoginBackground.layer.borderWidth = 0.25
+        viewLoginBackground.layer.shadowOffset = CGSize (width:10, height:10)
+        viewLoginBackground.layer.shadowRadius = 5
+        viewLoginBackground.layer.shadowOpacity = 0.3
+    }
+    
+    func textFieldViewBackground() {
+        textFieldUsernameEntry.layer.shadowOffset = CGSize(width: 5, height: 5)
+        textFieldPassword.layer.shadowOffset = CGSize(width: 5, height: 5)
+        textFieldUsernameEntry.layer.shadowRadius = 3
+        textFieldUsernameEntry.layer.shadowOpacity = 0.2
+        textFieldPassword.layer.shadowRadius = 3
+        textFieldPassword.layer.shadowOpacity = 0.2
+        
+        textFieldPassword.isSecureTextEntry = true
+        
+    }
+    
+    func buttonLoginView() {
+        buttonLogin.layer.shadowOffset = CGSize(width: 10, height: 10)
+        buttonLogin.layer.shadowRadius = 3
+        buttonLogin.layer.shadowOpacity = 0.2
+        buttonRegister.layer.shadowOffset = CGSize(width: 10, height: 10)
+        buttonRegister.layer.shadowRadius = 3
+        buttonRegister.layer.shadowOpacity = 0.2
     }
     
     func textFieldShouldReturn (_ textField: UITextField) -> Bool {
@@ -69,6 +114,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 let loginResponse = try decoder.decode(LoginResponse.self, from: data)
                 print("Success request: \(loginResponse)")
                 
+                UserDefaults.standard.set(loginResponse.token, forKey: "user_token")
+                
+                UserDefaults.standard.set(loginResponse.accountNo, forKey: "account_number")
+                
+                UserDefaults.standard.set(loginResponse.username, forKey: "account_holder")
+                
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let dashboardViewController = storyBoard.instantiateViewController(withIdentifier: "dashboard") as! DashboardViewController
                 dashboardViewController.modalPresentationStyle = .fullScreen
@@ -96,6 +147,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    
+    @IBAction func buttonRegisterInTapped(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let registerViewController = storyBoard.instantiateViewController(withIdentifier: "register") as! RegisterViewController
+        registerViewController.modalPresentationStyle = .fullScreen
+        self.present(registerViewController, animated: true, completion: nil)
+        
+    }
     
 }
 

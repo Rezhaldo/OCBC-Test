@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct BalanceResponse: Codable {
+    let status: String
+    let accountNo: String
+    let balance: Int
+}
+

@@ -10,6 +10,8 @@
 		4D3BDEBD2838DADD005C3F9C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3BDEBC2838DADD005C3F9C /* DashboardViewController.swift */; };
 		4D3BDEBF2839EC4A005C3F9C /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3BDEBE2839EC4A005C3F9C /* LoginModel.swift */; };
 		4D3BDEC12839F807005C3F9C /* BalanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3BDEC02839F807005C3F9C /* BalanceModel.swift */; };
+		4D3BDEC4283A8F59005C3F9C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3BDEC2283A8F59005C3F9C /* RegisterViewController.swift */; };
+		4D3BDEC5283A8F59005C3F9C /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D3BDEC3283A8F59005C3F9C /* RegisterViewController.xib */; };
 		4D7BCE7728367968008A383B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCE7628367968008A383B /* AppDelegate.swift */; };
 		4D7BCE7928367968008A383B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCE7828367968008A383B /* SceneDelegate.swift */; };
 		4D7BCE7B28367968008A383B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BCE7A28367968008A383B /* LoginViewController.swift */; };
@@ -49,6 +51,8 @@
 		4D3BDEBC2838DADD005C3F9C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		4D3BDEBE2839EC4A005C3F9C /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		4D3BDEC02839F807005C3F9C /* BalanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceModel.swift; sourceTree = "<group>"; };
+		4D3BDEC2283A8F59005C3F9C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		4D3BDEC3283A8F59005C3F9C /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		4D7BCE7328367968008A383B /* OCBC Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OCBC Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7BCE7628367968008A383B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D7BCE7828367968008A383B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				4D7BCEAA2838D4C3008A383B /* TransactionTableViewCell.swift */,
 				4D7BCEAB2838D4C3008A383B /* TransactionTableViewCell.xib */,
 				4D3BDEBC2838DADD005C3F9C /* DashboardViewController.swift */,
+				4D3BDEC2283A8F59005C3F9C /* RegisterViewController.swift */,
+				4D3BDEC3283A8F59005C3F9C /* RegisterViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D7BCE832836796C008A383B /* LaunchScreen.storyboard in Resources */,
+				4D3BDEC5283A8F59005C3F9C /* RegisterViewController.xib in Resources */,
 				4D7BCE802836796C008A383B /* Assets.xcassets in Resources */,
 				4D7BCEAD2838D4C3008A383B /* TransactionTableViewCell.xib in Resources */,
 				4D7BCE7E28367968008A383B /* Main.storyboard in Resources */,
@@ -441,6 +448,7 @@
 				4D7BCE7B28367968008A383B /* LoginViewController.swift in Sources */,
 				4D3BDEBF2839EC4A005C3F9C /* LoginModel.swift in Sources */,
 				4D7BCE7728367968008A383B /* AppDelegate.swift in Sources */,
+				4D3BDEC4283A8F59005C3F9C /* RegisterViewController.swift in Sources */,
 				4D3BDEBD2838DADD005C3F9C /* DashboardViewController.swift in Sources */,
 				4D3BDEC12839F807005C3F9C /* BalanceModel.swift in Sources */,
 				4D7BCEAC2838D4C3008A383B /* TransactionTableViewCell.swift in Sources */,
