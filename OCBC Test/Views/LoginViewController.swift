@@ -98,6 +98,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             labelAlertPassword.isHidden = false
         }
         
+        loginMethod()
+
+      
+    }
+    
+    
+    @IBAction func buttonRegisterInTapped(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let registerViewController = storyBoard.instantiateViewController(withIdentifier: "register") as! RegisterViewController
+        registerViewController.modalPresentationStyle = .fullScreen
+        self.present(registerViewController, animated: true, completion: nil)
+        
+    }
+    
+    func loginMethod() {
         let loginRequest = LoginRequest(username: textFieldUsernameEntry.text ?? "", password: textFieldPassword.text ?? "")
         let header = HTTPHeaders(["Content-Type":"application/json", "Accept":"application/json"])
         let loginUrl = URL(string: "https://green-thumb-64168.uc.r.appspot.com/login")
@@ -130,30 +145,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
         })
         
-//        Alamofire.Session().request(loginUrl!, method: .post, parameters: loginRequest, encoder: JSONParameterEncoder.default, headers: header).response(completionHandler: { response in
-//            print("response \(response.debugDescription)")
-//            guard let data = response.data else { return }
-//
-//            do {
-//                let decoder = JSONDecoder()
-//                let loginResponse = try decoder.decode(LoginResponse.self, from: data)
-//                print("Success request: \(loginResponse)")
-//
-//            } catch let error {
-//                print("Error request: \(error.localizedDescription)")
-//            }
-//        })
-      
-        
-    }
-    
-    
-    @IBAction func buttonRegisterInTapped(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let registerViewController = storyBoard.instantiateViewController(withIdentifier: "register") as! RegisterViewController
-        registerViewController.modalPresentationStyle = .fullScreen
-        self.present(registerViewController, animated: true, completion: nil)
-        
+        //        Alamofire.Session().request(loginUrl!, method: .post, parameters: loginRequest, encoder: JSONParameterEncoder.default, headers: header).response(completionHandler: { response in
+        //            print("response \(response.debugDescription)")
+        //            guard let data = response.data else { return }
+        //
+        //            do {
+        //                let decoder = JSONDecoder()
+        //                let loginResponse = try decoder.decode(LoginResponse.self, from: data)
+        //                print("Success request: \(loginResponse)")
+        //
+        //            } catch let error {
+        //                print("Error request: \(error.localizedDescription)")
+        //            }
+        //        })
     }
     
 }
