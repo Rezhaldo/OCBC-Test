@@ -64,43 +64,27 @@ class DashboardViewController: UIViewController {
         })
         
         AF.request(transactionURL!, method: .get, headers: header).response(completionHandler: { response in
-            
-            print("response transaction: \(response)")
-        
-        guard let data = response.data else { return }
-            print("response transaction data: \(data)")
-        do {
-            let decoder = JSONDecoder()
-            let transactionResponse = try decoder.decode(TransactionResponse.self, from: data)
-            print("response transaction parse: \(transactionResponse)")
-            self.transactionData = transactionResponse
-            self.tableViewTransactionHistory.reloadData()
-        } catch let error {
-            print("Error Request: \(error.localizedDescription)")
-        }
-    })
-}
+            guard let data = response.data else { return }
+            do {
+                let decoder = JSONDecoder()
+                let transactionResponse = try decoder.decode(TransactionResponse.self, from: data)
+                self.transactionData = transactionResponse
+                self.tableViewTransactionHistory.reloadData()
+            } catch let error {
+                print("Error Request: \(error.localizedDescription)")
+            }
+        })
+    }
     
     @IBAction func buttonLogoutInTapped(_ sender: UIButton) {
         self.dismiss(animated: true)
-    
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return transactionData?.data.count ?? 0
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return transactionData?.data.count ?? 0
@@ -124,6 +108,12 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
 
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+        
+//        if let data = transactionData?.data, data.count > 0 {
+//            print("there is data")
+//        } else {
+//            print("there is no data")
+//        }
         
         if let tran = transactionData?.data[section] {
             if let dateStr = tran.transactionDate {

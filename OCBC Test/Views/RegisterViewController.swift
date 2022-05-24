@@ -27,24 +27,7 @@ class RegisterViewController: UIViewController {
         
         RegisterView()
     }
-    func RegisterView() {
-        viewBackgroundRegister.backgroundColor = UIColor.white
-        viewBackgroundRegister.layer.borderColor = UIColor.black.cgColor
-        viewBackgroundRegister.layer.borderWidth = 0.25
-        viewBackgroundRegister.layer.shadowOffset = CGSize (width:10, height:10)
-        viewBackgroundRegister.layer.shadowRadius = 5
-        viewBackgroundRegister.layer.shadowOpacity = 0.3
-        
-        textFieldUsername.layer.shadowOffset = CGSize(width: 5, height: 5)
-        textFieldUsername.layer.shadowRadius = 3
-        textFieldUsername.layer.shadowOpacity = 0.2
-        textFieldPassword.layer.shadowOffset = CGSize(width: 5, height: 5)
-        textFieldPassword.layer.shadowRadius = 3
-        textFieldPassword.layer.shadowOpacity = 0.2
-        textFieldConfirmPassword.layer.shadowOffset = CGSize(width: 5, height: 5)
-        textFieldConfirmPassword.layer.shadowRadius = 3
-        textFieldConfirmPassword.layer.shadowOpacity = 0.2
-    }
+    
     @IBAction func buttonCancelInTapped(_ sender: Any) {
         self.dismiss(animated: true)
 
@@ -83,21 +66,35 @@ class RegisterViewController: UIViewController {
                 let registerResponse =
                 try decoder.decode(RegisterResponse.self, from: data)
                 print(registerResponse)
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let dashboardViewController = storyBoard.instantiateViewController(withIdentifier: "login") as! LoginViewController
+                dashboardViewController.modalPresentationStyle = .fullScreen
+                self.present(dashboardViewController, animated: true, completion: nil)
+                
             } catch let error {
                 print("Error Request: \(error.localizedDescription)")
             }
         })
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func RegisterView() {
+        viewBackgroundRegister.backgroundColor = UIColor.white
+        viewBackgroundRegister.layer.borderColor = UIColor.black.cgColor
+        viewBackgroundRegister.layer.borderWidth = 0.25
+        viewBackgroundRegister.layer.shadowOffset = CGSize (width:10, height:10)
+        viewBackgroundRegister.layer.shadowRadius = 5
+        viewBackgroundRegister.layer.shadowOpacity = 0.3
+        
+        textFieldUsername.layer.shadowOffset = CGSize(width: 5, height: 5)
+        textFieldUsername.layer.shadowRadius = 3
+        textFieldUsername.layer.shadowOpacity = 0.2
+        textFieldPassword.layer.shadowOffset = CGSize(width: 5, height: 5)
+        textFieldPassword.layer.shadowRadius = 3
+        textFieldPassword.layer.shadowOpacity = 0.2
+        textFieldConfirmPassword.layer.shadowOffset = CGSize(width: 5, height: 5)
+        textFieldConfirmPassword.layer.shadowRadius = 3
+        textFieldConfirmPassword.layer.shadowOpacity = 0.2
     }
-    */
+
 
 }
