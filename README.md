@@ -43,11 +43,8 @@ This is Project for Glints Assignment
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://www.linkpicture.com/view.php?img=LPic628c3afddfcc9845565784)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
