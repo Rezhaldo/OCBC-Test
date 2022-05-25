@@ -91,9 +91,11 @@ class RegisterViewController: UIViewController {
         textFieldPassword.layer.shadowOffset = CGSize(width: 5, height: 5)
         textFieldPassword.layer.shadowRadius = 3
         textFieldPassword.layer.shadowOpacity = 0.2
+        textFieldPassword.isSecureTextEntry = true
         textFieldConfirmPassword.layer.shadowOffset = CGSize(width: 5, height: 5)
         textFieldConfirmPassword.layer.shadowRadius = 3
         textFieldConfirmPassword.layer.shadowOpacity = 0.2
+        textFieldConfirmPassword.isSecureTextEntry = true
     }
 
 
