@@ -20,28 +20,7 @@ class TransactionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-//        let userToken = UserDefaults.standard.string(forKey: "user_token") ?? ""
-//
-//        let transactionURL = URL(string: "https://green-thumb-64168.uc.r.appspot.com/transactions")
-//
-//        let header = HTTPHeaders(["Content-Type":"application/json","Accept":"application/json","Authorization":userToken])
-//
-//        AF.request(transactionURL!, method: .get, headers: header).response(completionHandler: { response in
-//
-//            print("response transaction: \(response)")
-//
-//        guard let data = response.data else { return }
-//
-//        do {
-//            let decoder = JSONDecoder()
-//            let transactionResponse = try decoder.decode(TransactionResponse.self, from: data)
-//            print("response transaction parse: \(transactionResponse)")
-//            self.labelNameContact.text = "\(transactionResponse.status)"
-//        } catch let error {
-//            print("Error Request: \(error.localizedDescription)")
-//        }
-//    })
+    
         
     }
     
